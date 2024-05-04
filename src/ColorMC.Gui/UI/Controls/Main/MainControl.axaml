@@ -31,7 +31,104 @@
                 Height="{Binding Live2dHeight}"
                 HorizontalAlignment="{Binding L2dPos}"
                 VerticalAlignment="{Binding L2dPos1}" />
-            <DockPanel Margin="5">
+            <DockPanel Margin="10">
+                <Border DockPanel.Dock="Right">
+                    <StackPanel Width="180" Margin="10,0,0,0">
+                        <Button
+                            HorizontalAlignment="Stretch"
+                            VerticalAlignment="Stretch"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Command="{Binding ShowUser}">
+                            <Border
+                                Width="180"
+                                HorizontalAlignment="Stretch"
+                                VerticalAlignment="Stretch"
+                                BorderThickness="0"
+                                CornerRadius="{setting:Style ButtonCornerRadius}">
+                                <Border.Background>
+                                    <ImageBrush Source="/Resource/Pic/pic1.png" Stretch="UniformToFill" />
+                                </Border.Background>
+                                <Panel>
+                                    <Rectangle
+                                        HorizontalAlignment="Stretch"
+                                        VerticalAlignment="Stretch"
+                                        Fill="Black"
+                                        RadiusX="{setting:Style Radius}"
+                                        RadiusY="{setting:Style Radius}">
+                                        <Rectangle.OpacityMask>
+                                            <LinearGradientBrush StartPoint="0%,0%" EndPoint="100%,100%">
+                                                <LinearGradientBrush.GradientStops>
+                                                    <GradientStop Offset="0" Color="Black" />
+                                                    <GradientStop Offset="1" Color="Transparent" />
+                                                </LinearGradientBrush.GradientStops>
+                                            </LinearGradientBrush>
+                                        </Rectangle.OpacityMask>
+                                    </Rectangle>
+                                    <StackPanel Margin="10" Orientation="Horizontal">
+                                        <Panel>
+                                            <Border
+                                                Width="38"
+                                                Height="38"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                CornerRadius="{setting:Style ButtonCornerRadius}">
+                                                <Border.Background>
+                                                    <ImageBrush Source="{Binding Head}" Stretch="UniformToFill" />
+                                                </Border.Background>
+                                            </Border>
+                                            <ProgressBar
+                                                Width="38"
+                                                Height="20"
+                                                MinWidth="38"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                IsIndeterminate="{Binding IsHeadLoad}"
+                                                IsVisible="{Binding IsHeadLoad}" />
+                                        </Panel>
+                                        <StackPanel
+                                            Margin="10,0,0,0"
+                                            VerticalAlignment="Center"
+                                            DockPanel.Dock="Left"
+                                            IsVisible="{Binding TopSide1}">
+                                            <TextBlock Foreground="White" Text="{Binding UserId, FallbackValue=UserId}" />
+                                            <TextBlock Foreground="White" Text="{Binding UserType, FallbackValue=UserType}" />
+                                        </StackPanel>
+                                    </StackPanel>
+                                </Panel>
+                            </Border>
+                        </Button>
+                        <Border
+                            Width="180"
+                            Margin="0,10,0,0"
+                            Padding="10"
+                            Background="{setting:Colors App.WindowBack1}"
+                            CornerRadius="{setting:Style ButtonCornerRadius}">
+                            <StackPanel>
+                                <TextBlock Text="{setting:Localize MainWindow.Text13}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <UniformGrid Columns="3" Rows="3">
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                        <RadioButton Margin="1" Classes="t1" />
+                                    </UniformGrid>
+                                    <StackPanel Margin="10,0,0,0">
+                                        <Slider
+                                            Width="80"
+                                            HorizontalAlignment="Stretch"
+                                            Classes="t1" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </Border>
                 <Border
                     Margin="0,0,0,3"
                     Padding="3"
@@ -39,41 +136,6 @@
                     DockPanel.Dock="Top"
                     IsVisible="{Binding !IsNotGame, FallbackValue=true}">
                     <DockPanel>
-                        <Button
-                            Background="Transparent"
-                            BorderThickness="0"
-                            Command="{Binding ShowUser}"
-                            DockPanel.Dock="Left"
-                            IsVisible="{Binding TopSide1}">
-                            <Panel>
-                                <Border
-                                    Width="38"
-                                    Height="38"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    CornerRadius="{setting:Style ButtonCornerRadius}">
-                                    <Border.Background>
-                                        <ImageBrush Source="{Binding Head}" Stretch="UniformToFill" />
-                                    </Border.Background>
-                                </Border>
-                                <ProgressBar
-                                    Width="38"
-                                    Height="20"
-                                    MinWidth="38"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"
-                                    IsIndeterminate="{Binding IsHeadLoad}"
-                                    IsVisible="{Binding IsHeadLoad}" />
-                            </Panel>
-                        </Button>
-                        <StackPanel
-                            Margin="5,0,0,0"
-                            VerticalAlignment="Center"
-                            DockPanel.Dock="Left"
-                            IsVisible="{Binding TopSide1}">
-                            <TextBlock Text="{Binding UserId}" />
-                            <TextBlock Text="{Binding UserType}" />
-                        </StackPanel>
                         <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
                             <StackPanel IsVisible="{Binding TopSide}" Orientation="Horizontal">
                                 <Button

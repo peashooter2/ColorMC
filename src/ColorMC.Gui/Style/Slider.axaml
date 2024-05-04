@@ -10,6 +10,16 @@
                     Width="200"
                     IsEnabled="False"
                     Value="50" />
+
+                <Slider
+                    Width="200"
+                    Classes="t1"
+                    Value="50" />
+                <Slider
+                    Width="200"
+                    Classes="t1"
+                    IsEnabled="False"
+                    Value="50" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -28,5 +38,18 @@
 
     <Style Selector="Slider:pointerover /template/ Thumb#thumb">
         <Setter Property="Background" Value="{DynamicResource SliderThumbBackgroundPointerOver}" />
+    </Style>
+
+    <Style Selector="Slider.t1">
+        <Style Selector="^:horizontal /template/ Thumb#thumb">
+            <Setter Property="Background" Value="{setting:Colors App.TextLight1}" />
+            <Setter Property="Width" Value="15" />
+            <Setter Property="Height" Value="15" />
+        </Style>
+        <Style Selector="^:horizontal /template/ Track">
+            <Style Selector="^:horizontal /template/ Border#TrackBackground">
+                <Setter Property="Background" Value="{setting:Colors App.TextLight1}" />
+            </Style>
+        </Style>
     </Style>
 </Styles>

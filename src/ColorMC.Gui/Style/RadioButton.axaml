@@ -8,6 +8,16 @@
                 <RadioButton Content="1 23" IsChecked="True" />
                 <RadioButton Content="1 23" />
                 <RadioButton Content="1 23" IsEnabled="False" />
+
+                <RadioButton
+                    Classes="t1"
+                    Content=""
+                    IsChecked="True" />
+                <RadioButton Classes="t1" Content="" />
+                <RadioButton
+                    Classes="t1"
+                    Content=""
+                    IsEnabled="False" />
             </StackPanel>
         </Border>
     </Design.PreviewWith>
@@ -20,6 +30,32 @@
         <Style Selector="^:checked /template/ Ellipse#CheckOuterEllipse">
             <Setter Property="Fill" Value="{setting:Colors Main}" />
             <Setter Property="Stroke" Value="{setting:Colors Main}" />
+        </Style>
+    </Style>
+
+    <Style Selector="RadioButton.t1">
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RadioButton">
+                <Border
+                    Name="RootBorder"
+                    Width="{TemplateBinding Width}"
+                    Height="{TemplateBinding Height}"
+                    Background="{TemplateBinding Background}"
+                    BorderBrush="{TemplateBinding BorderBrush}"
+                    CornerRadius="{setting:Style ButtonCornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Setter Property="Background" Value="{setting:Colors App.MainColor}" />
+        <Setter Property="Width" Value="20" />
+        <Setter Property="Height" Value="20" />
+
+        <Style Selector="^:pointerover /template/ Border#RootBorder">
+            <Setter Property="Background" Value="{setting:Colors App.PointerOver}" />
+        </Style>
+
+        <Style Selector="^:checked /template/ Border#RootBorder">
+            <Setter Property="Background" Value="{setting:Colors App.Select}" />
         </Style>
     </Style>
 </Styles>

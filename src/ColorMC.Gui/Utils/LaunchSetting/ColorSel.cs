@@ -6,6 +6,7 @@ using Avalonia.Media.Immutable;
 using Avalonia.Platform;
 using Avalonia.Threading;
 using ColorMC.Core.Utils;
+using ColorMC.Gui.Objs;
 
 namespace ColorMC.Gui.Utils.LaunchSetting;
 
@@ -74,7 +75,7 @@ public static class ColorSel
     public static IBrush ButtonBorder { get; private set; } = AppLightBackColor8;
     public static IBrush MainButtonBG { get; private set; } = AppLightBackColor9;
 
-
+    private static StyleColorObj NowColor = StyleColorObj.LightBlue;
     private static int s_now;
     private static IBrush s_color = MainColor;
     private static IBrush s_color1 = FontColor;
@@ -346,6 +347,21 @@ public static class ColorSel
             return ButtonBorder;
         else if (key == "MainButtonBG")
             return MainButtonBG;
+
+        else if (key == "App.MainColor")
+            return NowColor.MainColor;
+        else if (key == "App.TextLight")
+            return NowColor.TextLight;
+        else if (key == "App.TextLight1")
+            return NowColor.TextLight1;
+        else if (key == "App.WindowBack")
+            return NowColor.WindowBack;
+        else if (key == "App.WindowBack1")
+            return NowColor.WindowBack1;
+        else if (key == "App.PointerOver")
+            return NowColor.PointerOver;
+        else if (key == "App.Select")
+            return NowColor.Select;
 
         return Brushes.White;
     }
