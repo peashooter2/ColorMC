@@ -23,7 +23,7 @@ build_osx()
     base_dir="$base/ColorMC.app/Contents"
     zip_name="colormc-$main_version$version-$1.zip"
 
-    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1
+    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1 -m debug
 
     mkdir $base/ColorMC.app
     mkdir $base_dir
