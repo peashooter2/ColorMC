@@ -20,7 +20,7 @@ build_linux()
 
     echo "build colormc-$main_version$version-$1-linux"
 
-    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1
+    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1 -m debug
 
     echo "colormc-$main_version$version-$1-linux build done"
 }
@@ -30,7 +30,7 @@ build_linux_aot()
 
     echo "build colormc-$main_version$version-$1-aot version: $version"
 
-    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1-aot
+    dotnet publish ./src/ColorMC.Launcher -p:PublishProfile=$1-aot -m debug
 
     echo "colormc-$main_version$version-$1-aot build done"
 }
