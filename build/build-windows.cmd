@@ -25,7 +25,7 @@ goto :eof
 :build_win
 echo build colormc-%main_version%%version%-%1.zip
 
-dotnet publish .\src\ColorMC.Launcher -p:PublishProfile=%1
+dotnet publish .\src\ColorMC.Launcher -p:PublishProfile=%1 -m debug
 
 mkdir .\src\build_out\%1-dotnet\colormc
 
@@ -48,7 +48,7 @@ goto :eof
 :build_win_aot
 echo build colormc-%main_version%%version%-%1-aot.zip
 
-dotnet publish .\src\ColorMC.Launcher -p:PublishProfile=%1-aot
+dotnet publish .\src\ColorMC.Launcher -p:PublishProfile=%1-aot -m debug
 
 mkdir .\src\build_out\%1-aot\colormc
 
