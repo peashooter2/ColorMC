@@ -1,16 +1,16 @@
 pkgname="colormc"
-pkgver="a%version%"
+pkgver="%version%"
 pkgrel="1"
 pkgdesc="A Minecraft Launcher"
 url="https://www.github.com/Coloryr/ColorMC"
 packager="colormc"
 arch=("%arch%")
 license=("Apache 2.0")
-install=".INSTALL"
 sha512sums=("SKIP" "SKIP" "SKIP" "SKIP" "SKIP" "SKIP")
-options=("!strip" "!libtool" "!staticlibs")
-
-source=("libHarfBuzzSharp.so" "libSDL2-2.0.so" "libSkiaSharp.so" "ColorMC.Launcher" "ColorMC.desktop" "colormc.png")
+OPTIONS=(!strip)
+source=("libHarfBuzzSharp.so" "libSDL2-2.0.so" "libSkiaSharp.so" 
+        "ColorMC.Launcher" "ColorMC.desktop" "colormc.png")
+install=colormc.install
 
 package() {
     mkdir -p ${pkgdir}/usr/share/ColorMC
